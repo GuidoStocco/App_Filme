@@ -1,9 +1,34 @@
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useState, useEffect} from  'react'
+import { StyleSheet, Text, View, FlatList } from 'react-native';
+
+import api from './src/services/api';
+
+import Filmes from './src/Filmes/Filmes';
 
 export default function App() {
+
+  const [filmes, setFilmes] = useState([]);
+
+  useEffect(() => {
+
+    async function loadfilms(){
+      const response = await api.get('r-api/?api=filmes')
+
+      setFilmes(response.data);
+    };
+    loadfilms();
+
+  }, [])
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      
+    <FlatList
+    data={filmes}
+    keyExtractor={(item) => String(item.id)}
+    renderItem={({item}) => <Filmes data={item}/>}
+    />
+
     </View>
   );
 }
@@ -11,7 +36,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 30
   },
 });
