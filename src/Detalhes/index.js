@@ -3,18 +3,18 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
 
 
-export default function Detalhes(){
+export default function Detalhes(props){
     return(
         <View style={styles.container}>
             
             <View style={styles.modalContainer}>
-                <TouchableOpacity style={styles.botaoVoltar}>
+                <TouchableOpacity style={styles.botaoVoltar} onPress={props.voltar}>
                     <Text style={styles.botaoModal}>Voltar</Text>
                 </TouchableOpacity>
 
-                <Text style={styles.tituloModal}>Vingadores Ultimato</Text>
+                <Text style={styles.tituloModal}>{props.filme.nome}</Text>
                 <Text style={styles.sinopse}>Sinopse:</Text>
-                <Text style={styles.sinopseText}>Texto da sinopse completo</Text>
+                <Text style={styles.sinopseText}>{props.filme.sinopse}</Text>
             </View>
 
         </View>
@@ -60,5 +60,11 @@ const styles = StyleSheet.create({
         fontSize: 18,
         marginLeft: 8,
         marginBottom: 10
+    },
+    sinopseText:{
+        color:"#fff",
+        fontSize: 14,
+        marginLeft: 10,
+        marginRight: 10,
     }
 })

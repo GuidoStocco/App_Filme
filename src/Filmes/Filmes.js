@@ -27,7 +27,7 @@ export default function Filmes({data}){
             </View> 
 
             <Modal visible={visibleModal} animationType='slide' transparent={true}>
-                <Detalhes/>
+                <Detalhes filme={data} voltar={() => setVisibleModal(false)}/>
             </Modal>
 
         </View>
