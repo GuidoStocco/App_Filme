@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
 
     },
     foto:{
-
+        height: 250,
+        zIndex: 2
     }
 })
