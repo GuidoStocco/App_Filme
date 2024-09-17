@@ -15,7 +15,7 @@ export default function Filmes({data}){
                 />
 
                 <View style={styles.areaBotao}>
-                    <TouchableOpacity style={styles.botao}>
+                    <TouchableOpacity style={styles.botao} onPress={() => {}}>
                         <Text style={styles.tituloBotao}>LEIA MAIS!</Text>
                     </TouchableOpacity>
                 </View>
@@ -41,5 +41,23 @@ const styles = StyleSheet.create({
     foto:{
         height: 250,
         zIndex: 2
+    },
+    areaBotao:{
+        alignItems: 'flex-end',
+        marginTop: -45,
+        zIndex: 3
+    },
+    botao:{
+        backgroundColor: '#09a6ff',
+        padding: 8,
+        opacity: 1,
+        borderTopLeftRadius: 5,
+        borderBottomLeft: 5,
+        width: 100
+    },
+    tituloBotao:{
+        color: '#fff',
+        fontWeight: 'bold',
+        textAlign: 'center'
     }
 })
